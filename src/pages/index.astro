@@ -1,16 +1,23 @@
 ---
 import Welcome from '../components/Welcome';
+import URLList from '../components/URLList';
+
+const customUrl = Astro.url.pathname.substring(1);
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>URL List</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>The Urlist</title>
 	</head>
 	<body>
-		<Welcome client:load />
+		<main>
+			{customUrl ? (
+				<URLList client:load customUrl={customUrl} />
+			) : (
+				<Welcome client:load />
+			)}
+		</main>
 	</body>
 </html>
