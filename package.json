@@ -25,9 +25,11 @@
     "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
+    "@types/node": "^22.14.1",
     "@types/pg": "^8.11.13",
     "autoprefixer": "^10.4.17",
     "postcss": "^8.4.35",
-    "tsx": "^4.19.3"
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
   }
 }

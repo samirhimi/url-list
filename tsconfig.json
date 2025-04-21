@@ -5,6 +5,7 @@
   "compilerOptions": {
     "types": ["node"],
     "allowJs": true,
-    "moduleResolution": "node"
+    "moduleResolution": "bundler",
+    "module": "ESNext"
   }
 }

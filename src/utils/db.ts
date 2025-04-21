@@ -10,12 +10,16 @@ const pool = new Pool({
 });
 
 export const query = async (text: string, params?: any[]) => {
+  const client = await pool.connect();
   try {
-    const result = await pool.query(text, params);
+    console.log('Executing query:', { text, params });
+    const result = await client.query(text, params);
     return result;
   } catch (error) {
     console.error('Database query error:', error);
     throw error;
+  } finally {
+    client.release();
   }
 };
 
@@ -31,6 +35,7 @@ const testConnection = async () => {
     }
   } catch (err) {
     console.error('Error connecting to the database:', err);
+    throw err;
   }
 };
 
